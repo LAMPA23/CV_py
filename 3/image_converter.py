@@ -22,3 +22,11 @@ def BGR_to_HSI(image):
     saturation = 1 - 3 * np.minimum(red, np.minimum(green, blue)) / (red + green + blue)
     hue = hue * 180 / np.pi
     return cv2.merge([hue, saturation, intensity])
+
+
+def to_smooth(image, sigma=1.0):
+    blue_channel, green_channel, red_channel = cv2.split(image)
+    smooth_blue = cv2.GaussianBlur(blue_channel, (0, 0), sigma)
+    smooth_green = cv2.GaussianBlur(green_channel, (0, 0), sigma)
+    smooth_red = cv2.GaussianBlur(red_channel, (0, 0), sigma)
+    return cv2.merge([smooth_blue, smooth_green, smooth_red])
