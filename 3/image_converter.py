@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import colorgrad 
 from PIL import Image
 
 
@@ -118,3 +119,24 @@ def equaliz_Lab(image):
     equalized_l_channel = cv2.equalizeHist(l_channel)
     image = cv2.merge((equalized_l_channel, a_channel, b_channel))
     return cv2.cvtColor(image, cv2.COLOR_Lab2RGB)
+
+
+
+
+# Gradienting functions
+
+def get_per_plane_gradient(image):
+    _, _, PPG = colorgrad.colorgrad(image)
+    return PPG
+
+def get_sobel_gradient_normalized(image):
+    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    sobel_x = cv2.Sobel(gray_image, cv2.CV_64F, 1, 0, ksize=3)
+    sobel_y = cv2.Sobel(gray_image, cv2.CV_64F, 0, 1, ksize=3)
+    sobel_gradient = cv2.magnitude(sobel_x, sobel_y)
+    return cv2.normalize(sobel_gradient, None, 0, 255, cv2.NORM_MINMAX, cv2.CV_8U)
+
+def get_absolute_difference(image):
+    PPG = get_per_plane_gradient(image)
+    sobel_gradient_normalized = get_sobel_gradient_normalized(image)
+    return cv2.absdiff(sobel_gradient_normalized.astype(PPG.dtype), PPG)

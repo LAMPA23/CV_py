@@ -64,3 +64,10 @@ im_show.save_image(im_conv.equaliz_RGB(original_image_2), 'Equalized RGB', 'Task
 im_show.save_image(im_conv.equaliz_HSV(original_image_2), 'Equalized HSV', 'Task #6')
 im_show.save_image(im_conv.equaliz_Lab(original_image_2), 'Equalized Lab', 'Task #6')
 
+
+# Task #7
+im_show.save_image(original_image_2, 'Original', 'Task #7')
+im_show.save_image(im_conv.get_per_plane_gradient(original_image_2), 'get_per_plane_gradient', 'Task #7')
+im_show.save_image(im_conv.get_sobel_gradient_normalized(original_image_2), 'get_sobel_gradient_normalized', 'Task #7')
+im_show.save_image(im_conv.get_absolute_difference(original_image_2), 'get_absolute_difference', 'Task #7')
+
