@@ -1,5 +1,9 @@
 import cv2
 import numpy as np
+from PIL import Image
+
+def get_color_space(image_path):
+    return Image.open(image_path).mode
 
 
 def BGR_to_CMY(image):
@@ -25,8 +29,8 @@ def BGR_to_HSI(image):
 
 
 def to_smooth(image, sigma=1.0):
-    blue_channel, green_channel, red_channel = cv2.split(image)
+    red_channel, green_channel, blue_channel = cv2.split(image)
     smooth_blue = cv2.GaussianBlur(blue_channel, (0, 0), sigma)
     smooth_green = cv2.GaussianBlur(green_channel, (0, 0), sigma)
     smooth_red = cv2.GaussianBlur(red_channel, (0, 0), sigma)
-    return cv2.merge([smooth_blue, smooth_green, smooth_red])
+    return cv2.merge([smooth_red, smooth_green, smooth_blue])
