@@ -59,7 +59,8 @@ mf.show_images_x3(
 
 
 # Task #4 Потоншення (файл – pic.3.jpg)
-thin_image = morphology.thin(original_image_3)
+binary_image = cv2.threshold(original_image_3, 128, 255, cv2.THRESH_BINARY)[1]
+thin_image = morphology.thin(binary_image)
 mf.show_images_x2(
     original_image_3,
     thin_image,
