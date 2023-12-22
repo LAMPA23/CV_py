@@ -13,14 +13,16 @@ def show_images_x2(
     fig.canvas.manager.set_window_title(window_name)
 
     plt.subplot(1,2,1)
-    plt.imshow(image_1)
+    plt.imshow(image_1, cmap='gray')
     plt.title(title_1)
     plt.axis('off')
     
     plt.subplot(1,2,2)
-    plt.imshow(image_2)
+    plt.imshow(image_2, cmap='gray')
     plt.title(title_2)
     plt.axis('off')
+
+    plt.show()
 
 
 def show_images_x3(
@@ -37,19 +39,21 @@ def show_images_x3(
     fig.canvas.manager.set_window_title(window_name)
 
     plt.subplot(1,3,1)
-    plt.imshow(image_1)
+    plt.imshow(image_1, cmap='gray')
     plt.title(title_1)
     plt.axis('off')
     
     plt.subplot(1,3,2)
-    plt.imshow(image_2)
+    plt.imshow(image_2, cmap='gray')
     plt.title(title_2)
     plt.axis('off')
 
     plt.subplot(1,3,3)
-    plt.imshow(image_3)
+    plt.imshow(image_3, cmap='gray')
     plt.title(title_3)
     plt.axis('off')
+
+    plt.show()
 
 
 def show_images_x4(
@@ -68,24 +72,26 @@ def show_images_x4(
     fig.canvas.manager.set_window_title(window_name)
 
     plt.subplot(2,2,1)
-    plt.imshow(image_1)
+    plt.imshow(image_1, cmap='gray')
     plt.title(title_1)
     plt.axis('off')
     
     plt.subplot(2,2,2)
-    plt.imshow(image_2)
+    plt.imshow(image_2, cmap='gray')
     plt.title(title_2)
     plt.axis('off')
 
     plt.subplot(2,2,3)
-    plt.imshow(image_3)
+    plt.imshow(image_3, cmap='gray')
     plt.title(title_3)
     plt.axis('off')
     
-    plt.subplot(2,2,2)
-    plt.imshow(image_4)
+    plt.subplot(2,2,4)
+    plt.imshow(image_4, cmap='gray')
     plt.title(title_4)
     plt.axis('off')
+
+    plt.show()
 
 
 def get_gray_image(kernal_path, image_name):
