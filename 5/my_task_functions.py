@@ -70,3 +70,15 @@ def watershed_with_grad(image):
     markers, _ = ndimage.label(mask)
     water = segmentation.watershed(image=-image, markers=markers, mask=sobelxy)
     return water
+
+
+
+def kmeans_clustering(image, num_clusters):
+    pixels = image.reshape((-1, 3))
+    pixels = numpy.float32(pixels)
+    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.2)
+    _, labels, centers = cv2.kmeans(pixels, num_clusters, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+    centers = numpy.uint8(centers)
+    segmented_image = centers[labels.flatten()]
+    segmented_image = segmented_image.reshape(image.shape)
+    return segmented_image

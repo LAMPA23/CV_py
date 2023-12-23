@@ -32,57 +32,57 @@ win_name_task_6 = 'Сегментація по вододілам за допо�
 win_name_task_7 = 'Виконати сегментацію кольорового зображення за допомогою кластеризації по k-середніх (файл – pic.8.jpg)'
 
 
-# # Task #1
-# images = [None] * 2
-# images[0] = original_image_1
-# images[1] = mtf.detect_points(original_image_1)
-# mgpf.show_images([1,2], images, win_name_task_1, ['Оригінальне зображення', 'Оброблене зображення'])
+# Task #1
+images = [None] * 2
+images[0] = original_image_1
+images[1] = mtf.detect_points(original_image_1)
+mgpf.show_images([1,2], images, win_name_task_1, ['Оригінальне зображення', 'Оброблене зображення'])
 
 
-# # Task #2 
-# images = [None] * 6
-# images[1:6] = mtf.line_finder(original_image_2)
-# images[0] = original_image_2
-# mgpf.show_images([2,3], images, win_name_task_2, ['Оригінальне зображення', 
-#                                                   'Вертикальна обробка', 
-#                                                   'Горизонтальна обробка', 
-#                                                   'Права діагональ обробка', 
-#                                                   'Ліва діагональ обробка', 
-#                                                   'Обробка всіх напрямків']
-# )
+# Task #2 
+images = [None] * 6
+images[1:6] = mtf.line_finder(original_image_2)
+images[0] = original_image_2
+mgpf.show_images([2,3], images, win_name_task_2, ['Оригінальне зображення', 
+                                                  'Вертикальна обробка', 
+                                                  'Горизонтальна обробка', 
+                                                  'Права діагональ обробка', 
+                                                  'Ліва діагональ обробка', 
+                                                  'Обробка всіх напрямків']
+)
 
 
-# # Task #3
-# images = [None] * 2
-# images[0] = original_image_3
-# images[1] = feature.canny(original_image_3)
-# mgpf.show_images([1,2], images, win_name_task_3, ['Оригінальне зображення','Оброблене зображення',])
+# Task #3
+images = [None] * 2
+images[0] = original_image_3
+images[1] = feature.canny(original_image_3)
+mgpf.show_images([1,2], images, win_name_task_3, ['Оригінальне зображення','Оброблене зображення',])
 
 
-# # Task #4
-# images = [None] * 2
-# images[0] = original_image_4
-# images[1] = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(original_image_4)
-# mgpf.show_images([1,2], images, win_name_task_4, ['Оригінальне зображення','Оброблене зображення',])
+# Task #4
+images = [None] * 2
+images[0] = original_image_4
+images[1] = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(original_image_4)
+mgpf.show_images([1,2], images, win_name_task_4, ['Оригінальне зображення','Оброблене зображення',])
 
 
-# # Task #5
-# images = [None] * 2
-# images[0] = original_image_5
-# images[1] = mtf.watershed_with_distance(original_image_5)
-# mgpf.show_images([1,2], images, win_name_task_5, ['Оригінальне зображення', 'Оброблене зображення'])
+# Task #5
+images = [None] * 2
+images[0] = original_image_5
+images[1] = mtf.watershed_with_distance(original_image_5)
+mgpf.show_images([1,2], images, win_name_task_5, ['Оригінальне зображення', 'Оброблене зображення'])
 
 
-# # Task #6
-# images = [None] * 2
-# images[0] = original_image_6
-# images[1] = mtf.watershed_with_grad(original_image_6)
-# mgpf.show_images([1,2], images, win_name_task_6, ['Оригінальне зображення', 'Оброблене зображення'])
+# Task #6
+images = [None] * 2
+images[0] = original_image_6
+images[1] = mtf.watershed_with_grad(original_image_6)
+mgpf.show_images([1,2], images, win_name_task_6, ['Оригінальне зображення', 'Оброблене зображення'])
 
 
 # Task #7
 images = [None] * 2
-images[0] = original_image_7
-images[1] = mtf.watershed_with_grad(original_image_7)
+images[0] = original_image_8_jpg
+images[1] = mtf.kmeans_clustering(original_image_8_jpg, 3)
 mgpf.show_images([1,2], images, win_name_task_7, ['Оригінальне зображення', 'Оброблене зображення'])
 
