@@ -5,7 +5,10 @@ import os
 os.system('cls')
 
 def apply_laplacian_manually(image, mask):
-    image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+    try:
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+    except:
+        pass
     y_max, x_max = image.shape
     laplacian_result = np.zeros_like(image, dtype=np.float32)
     for y in range(1, y_max - 1):
