@@ -115,3 +115,6 @@ def freqz2(h, M, N):
 	H = np.fft.fft2(np.fft.fftshift(a))
 
 	return H
+
+
+
